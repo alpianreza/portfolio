@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Eiran Tsaqif — Digital Asset Portfolio</title>
+<meta name="description" content="Portfolio of AI-generated visual assets by Eiran Tsaqif: seamless Indonesian textile patterns, children's illustrations, and technology background visuals.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --ink: #23201c;
+    --ink-soft: #5c564d;
+    --line: #e5e0d6;
+    --accent: #9c4a1f;
+    --accent-soft: #f3e7dd;
+    --shadow: 0 10px 30px rgba(35,32,28,.10);
+    --radius: 10px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: #17150f;
+      --surface: #211e17;
+      --ink: #ece7dc;
+      --ink-soft: #b3ab9c;
+      --line: #38332a;
+      --accent: #e08a4e;
+      --accent-soft: #33261b;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+    }
+  }
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+  body{
+    font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{ max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  header{ padding: 56px 0 8px; text-align: center; }
+  .rule{
+    width: 54px; height: 3px; border-radius: 2px;
+    background: var(--accent); margin: 0 auto 22px;
+  }
+  h1{
+    font-family: "Lora", Georgia, serif;
+    font-weight: 600; font-size: clamp(30px, 5vw, 46px);
+    letter-spacing: .2px; line-height: 1.15;
+  }
+  .subtitle{
+    margin-top: 12px; font-size: clamp(15px, 2.4vw, 18px);
+    color: var(--ink-soft); max-width: 640px; margin-left: auto; margin-right: auto;
+  }
+  .meta-row{
+    margin-top: 20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+  }
+  .chip{
+    font-size: 12.5px; font-weight: 600; letter-spacing: .04em;
+    color: var(--accent); background: var(--accent-soft);
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 13px;
+  }
+
+  .about{
+    max-width: 760px; margin: 34px auto 8px; text-align: center;
+    font-size: 16px; color: var(--ink-soft);
+  }
+  .about strong{ color: var(--ink); font-weight: 600; }
+  .about p + p{ margin-top: 12px; }
+
+  .toc{
+    margin: 30px auto 0; display: flex; justify-content: center; gap: 8px 26px; flex-wrap: wrap;
+    font-size: 14px; font-weight: 600;
+  }
+  .toc a{ color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  .toc a:hover, .toc a:focus-visible{ border-bottom-color: var(--accent); outline: none; }
+
+  .gallery-head{
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin: 52px 0 18px; flex-wrap: wrap;
+    border-top: 1px solid var(--line); padding-top: 30px;
+  }
+  .gallery-head.first{ border-top: none; padding-top: 0; margin-top: 40px; }
+  .gallery-head h2{
+    font-family: "Lora", Georgia, serif; font-weight: 600; font-size: 24px;
+  }
+  .gallery-head p{ font-size: 13.5px; color: var(--ink-soft); max-width: 520px; }
+
+  .grid{
+    display: grid; gap: 26px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 10px;
+  }
+  @media (min-width: 640px){ .grid{ grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px){ .grid{ grid-template-columns: repeat(4, 1fr); } }
+  .grid.wide{ grid-template-columns: repeat(1, 1fr); }
+  @media (min-width: 640px){ .grid.wide{ grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px){ .grid.wide{ grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px){ .grid.tall{ grid-template-columns: repeat(3, 1fr); } }
+
+  figure.tile{ display: flex; flex-direction: column; }
+  .tile button{
+    appearance: none; border: 1px solid var(--line); padding: 0; cursor: pointer;
+    border-radius: var(--radius); overflow: hidden; background: var(--surface);
+    display: block; width: 100%; text-align: left;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .tile button:hover, .tile button:focus-visible{
+    transform: translateY(-3px); box-shadow: var(--shadow); outline: none;
+  }
+  .tile img{ display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+  .grid.wide .tile img{ aspect-ratio: 3 / 2; }
+  .grid.tall .tile img{ aspect-ratio: 4 / 5; }
+  figcaption{
+    margin-top: 10px; font-size: 13px; line-height: 1.45; color: var(--ink-soft);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  footer{
+    margin-top: 56px; border-top: 1px solid var(--line);
+    padding: 26px 0 44px; text-align: center;
+    font-size: 13.5px; color: var(--ink-soft);
+  }
+  footer .serif{ font-family: "Lora", Georgia, serif; font-size: 15px; color: var(--ink); }
+
+  /* Lightbox */
+  .lightbox{
+    position: fixed; inset: 0; z-index: 50; display: none;
+    background: rgba(12,10,8,.88); padding: 20px;
+    align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+  }
+  .lightbox.open{ display: flex; }
+  .lb-stage{
+    width: min(78vh, 92vw); aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden;
+    background: var(--surface);
+    box-shadow: 0 24px 60px rgba(0,0,0,.5);
+    background-size: cover; background-position: center;
+  }
+  .lb-stage.wide{ width: min(104vh, 94vw); aspect-ratio: 3 / 2; }
+  .lb-stage.tall{ width: min(46vh, 92vw); aspect-ratio: 9 / 16; }
+  .lb-stage.tiled{ background-size: 33.333% 33.333%; background-repeat: repeat; }
+  .lb-caption{
+    color: #f2ede3; font-size: 15px; text-align: center; max-width: 640px; line-height: 1.5;
+  }
+  .lb-controls{ display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .lb-btn{
+    appearance: none; cursor: pointer; font: inherit; font-size: 13.5px; font-weight: 600;
+    color: #f2ede3; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.35);
+    border-radius: 999px; padding: 8px 18px;
+  }
+  .lb-btn:hover{ background: rgba(255,255,255,.22); }
+  .lb-btn[aria-pressed="true"]{ background: var(--accent); border-color: var(--accent); color: #fff; }
+  .lb-close{
+    position: absolute; top: 16px; right: 16px; width: 42px; height: 42px;
+    border-radius: 50%; font-size: 20px; line-height: 1; padding: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="rule" aria-hidden="true"></div>
+      <h1>Eiran Tsaqif</h1>
+      <p class="subtitle">Digital creator producing AI-generated visual assets &mdash; seamless patterns, illustrations, and background visuals</p>
+      <div class="meta-row">
+        <span class="chip">17 SEAMLESS PATTERNS</span>
+        <span class="chip">12 CHILDREN&rsquo;S ILLUSTRATIONS</span>
+        <span class="chip">6 TECH BACKGROUNDS</span>
+        <span class="chip">AI-GENERATED</span>
+      </div>
+    </header>
+
+    <section class="about" aria-label="About the creator">
+      <p><strong>About.</strong> I create AI-generated visual assets across several styles and subjects. My pattern work draws on Indonesian heritage &mdash; <strong>batik</strong>, <strong>songket</strong>, and <strong>tenun</strong> motifs reimagined in modern palettes. Alongside patterns, I produce flat-style <strong>children&rsquo;s illustrations</strong> for educational videos and cinematic <strong>technology backgrounds</strong> for IT explainer content.</p>
+      <p>Everything is released in themed batches with careful English titles and keywords, and AI-generated work is always tagged as such. The goal: a useful, growing library for designers, educators, and content creators.</p>
+    </section>
+
+    <nav class="toc" aria-label="Portfolio sections">
+      <a href="#patterns">Seamless Patterns</a>
+      <a href="#illustrations">Children&rsquo;s Illustrations</a>
+      <a href="#backgrounds">Tech Backgrounds</a>
+    </nav>
+
+    <div class="gallery-head first" id="patterns">
+      <h2>Seamless Textile Patterns</h2>
+      <p>Batik, songket, and tenun-inspired seamless patterns. Select any pattern to preview it full-size or tiled 3&times;3.</p>
+    </div>
+    <main class="grid" id="gridPatterns"></main>
+
+    <div class="gallery-head" id="illustrations">
+      <h2>Children&rsquo;s Illustrations</h2>
+      <p>Flat-style cartoon characters &mdash; animals, food, vehicles, and nature &mdash; created for children&rsquo;s educational videos. Select any illustration to view it full-size.</p>
+    </div>
+    <section class="grid wide" id="gridIllus"></section>
+
+    <div class="gallery-head" id="backgrounds">
+      <h2>Tech Backgrounds</h2>
+      <p>Cinematic technology visuals &mdash; fiber optics, data centers, and networks &mdash; created as backgrounds and b-roll for IT explainer content. Select any visual to view it full-size.</p>
+    </div>
+    <section class="grid tall" id="gridBg"></section>
+
+    <footer>
+      <p class="serif">Eiran Tsaqif</p>
+      <p>Seamless patterns &middot; Children&rsquo;s illustrations &middot; Tech backgrounds &middot; AI-generated</p>
+    </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Asset preview">
+    <button class="lb-btn lb-close" id="lbClose" aria-label="Close preview">&times;</button>
+    <div class="lb-stage" id="lbStage"></div>
+    <p class="lb-caption" id="lbCaption"></p>
+    <div class="lb-controls" id="lbControls">
+      <button class="lb-btn" id="lbSingle" aria-pressed="true">Single tile</button>
+      <button class="lb-btn" id="lbTiled" aria-pressed="false">Tiled 3&times;3 &mdash; seamless check</button>
+    </div>
+  </div>
+
+<script>
+  var PATTERNS = [
+    { file: "batik-navy-gold.jpg",        title: "Elegant navy blue and gold geometric batik pattern, seamless kawung-inspired ornament background" },
+    { file: "batik-terracotta.jpg",       title: "Terracotta and cream mega mendung cloud wave batik pattern, seamless Indonesian textile background" },
+    { file: "batik-sage.jpg",             title: "Sage green and ivory modern parang batik pattern, seamless diagonal textile ornament background" },
+    { file: "batik-mono.jpg",             title: "Black and white geometric batik star pattern, seamless monochrome ethnic ornament background" },
+    { file: "batch2-royal-silver.jpg",    title: "Royal blue and silver geometric batik pattern, seamless kawung-inspired ornament background" },
+    { file: "batch2-emerald-gold.jpg",    title: "Emerald green and gold parang batik pattern, seamless diagonal luxury textile background" },
+    { file: "batch2-maroon-mendung.jpg",  title: "Maroon and cream mega mendung cloud batik pattern, seamless Indonesian wave textile background" },
+    { file: "batch2-teal-truntum.jpg",    title: "Teal and white truntum star flower batik pattern, seamless geometric textile background" },
+    { file: "batch2-black-gold.jpg",      title: "Black and gold sekar jagad batik pattern, seamless luxury floral ornament textile background" },
+    { file: "batch2-rose-floral.jpg",     title: "Dusty pink and rose gold floral batik pattern, seamless elegant blossom textile background" },
+    { file: "batch2-indigo-copper.jpg",   title: "Indigo blue and copper tribal geometric batik pattern, seamless ethnic diamond textile background" },
+    { file: "batch2-olive-minimal.jpg",   title: "Olive green and beige minimalist batik pattern, seamless delicate line motif textile background" },
+    { file: "batch2-crimson-parang.jpg",  title: "Crimson red and black bold parang batik pattern, seamless diagonal blade motif textile background" },
+    { file: "batch2-turquoise-ocean.jpg", title: "Turquoise and sand ocean wave batik pattern, seamless mega mendung curl textile background" },
+    { file: "batch3-songket-maroon-gold.jpg", title: "Deep maroon and gold songket weaving pattern, seamless Indonesian metallic thread textile background" },
+    { file: "batch3-ikat-ntt-indigo.jpg",     title: "Indigo blue and terracotta ikat tenun pattern, seamless Nusa Tenggara geometric diamond textile background" },
+    { file: "batch3-endek-bali-teal.jpg",     title: "Teal and gold Balinese endek weaving pattern, seamless frangipani flower textile background" }
+  ];
+
+  var ILLUSTRATIONS = [
+    { file: "illus-elephant.jpg",   title: "Cute baby elephant cartoon illustration in a green jungle, children's book style character" },
+    { file: "illus-kitten.jpg",     title: "Cute orange kitten cartoon illustration in a flower garden, children's book style character" },
+    { file: "illus-lion.jpg",       title: "Cute lion cub cartoon illustration on a sunny savanna, children's book style character" },
+    { file: "illus-penguin.jpg",    title: "Cute penguin cartoon illustration on a snowy background, children's book style character" },
+    { file: "illus-bunny.jpg",      title: "Cute white bunny holding a carrot in a flower meadow, children's book style illustration" },
+    { file: "illus-whale.jpg",      title: "Cute blue whale cartoon illustration spouting water, children's book style character" },
+    { file: "illus-shark.jpg",      title: "Cute baby shark cartoon illustration, children's book style character" },
+    { file: "illus-airplane.jpg",   title: "Cute cartoon airplane character flying in a blue sky, children's illustration" },
+    { file: "illus-car.jpg",        title: "Cute red cartoon car character, children's illustration" },
+    { file: "illus-watermelon.jpg", title: "Cute watermelon slice cartoon character with a happy face, children's illustration" },
+    { file: "illus-grapes.jpg",     title: "Cute bunch of purple grapes cartoon characters, children's illustration" },
+    { file: "illus-rainbow.jpg",    title: "Cute rainbow with smiling clouds cartoon illustration, children's book style background" }
+  ];
+
+  var BACKGROUNDS = [
+    { file: "bg-fiber-color.jpg",  title: "Colorful fiber optic cable bundle glowing blue and gold, technology background" },
+    { file: "bg-fiber-glow.jpg",   title: "Glowing orange fiber optic strands on a dark blue background, abstract technology backdrop" },
+    { file: "bg-data-tunnel.jpg",  title: "Futuristic data tunnel with glowing gold and cyan light pipes, sci-fi technology background" },
+    { file: "bg-datacenter.jpg",   title: "Data center server corridor with blue lighting, technology background" },
+    { file: "bg-server-rack.jpg",  title: "Network server rack close-up with status lights and ethernet cables, technology background" },
+    { file: "bg-wifi-router.jpg",  title: "Home WiFi router with glowing signal waves in a cozy living room, technology background" }
+  ];
+
+  var lightbox = document.getElementById("lightbox");
+  var stage = document.getElementById("lbStage");
+  var caption = document.getElementById("lbCaption");
+  var controls = document.getElementById("lbControls");
+  var btnSingle = document.getElementById("lbSingle");
+  var btnTiled = document.getElementById("lbTiled");
+  var btnClose = document.getElementById("lbClose");
+
+  function setMode(tiled) {
+    stage.classList.toggle("tiled", tiled);
+    btnSingle.setAttribute("aria-pressed", String(!tiled));
+    btnTiled.setAttribute("aria-pressed", String(tiled));
+  }
+  function openLightbox(item, shape) {
+    stage.className = "lb-stage" + (shape ? " " + shape : "");
+    stage.style.backgroundImage = "url(assets/" + item.file + ")";
+    caption.textContent = item.title;
+    controls.style.display = shape === "" ? "flex" : "none";
+    setMode(false);
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+    btnClose.focus();
+  }
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  btnSingle.addEventListener("click", function () { setMode(false); });
+  btnTiled.addEventListener("click", function () { setMode(true); });
+  btnClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", function (e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+  });
+
+  function buildGrid(elId, items, shape, eagerCount) {
+    var grid = document.getElementById(elId);
+    items.forEach(function (item, i) {
+      var fig = document.createElement("figure");
+      fig.className = "tile";
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", "Preview: " + item.title);
+      var img = document.createElement("img");
+      img.src = "assets/" + item.file;
+      img.alt = item.title;
+      img.loading = i < eagerCount ? "eager" : "lazy";
+      btn.appendChild(img);
+      var cap = document.createElement("figcaption");
+      cap.textContent = item.title;
+      fig.appendChild(btn);
+      fig.appendChild(cap);
+      btn.addEventListener("click", function () { openLightbox(item, shape); });
+      grid.appendChild(fig);
+    });
+  }
+
+  buildGrid("gridPatterns", PATTERNS, "", 8);
+  buildGrid("gridIllus", ILLUSTRATIONS, "wide", 0);
+  buildGrid("gridBg", BACKGROUNDS, "tall", 0);
+</script>
+</body>
+</html>
